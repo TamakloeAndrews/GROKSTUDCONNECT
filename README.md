@@ -4,49 +4,52 @@
 
 Ghana-first learning + social platform for ages **12+**, with guardian controls, policy-enforced safety, Flutter (Android/iOS), web PWA, and reference API.
 
-**Repository owner:** [TamakloeAndrews](https://github.com/TamakloeAndrews)  
-**Repo URL:** https://github.com/TamakloeAndrews/GROKSTUDCONNECT
+**Repo:** https://github.com/TamakloeAndrews/GROKSTUDCONNECT
 
 ---
 
-## What is in this repo
+## Quick setup (download & run)
 
-| Path | Description |
-|------|-------------|
-| [`RELEASES.md`](./RELEASES.md) | All package ZIP names tagged by version / creation |
-| [`docs/`](./docs/) | Flutter production guide, APK how-to |
+```bash
+git clone https://github.com/TamakloeAndrews/GROKSTUDCONNECT.git
+cd GROKSTUDCONNECT
+chmod +x scripts/setup-studconnect.sh
 
-Binary **`.zip` archives** (full source trees) should be published as **[GitHub Release assets](https://github.com/TamakloeAndrews/GROKSTUDCONNECT/releases)** so Git stays lean. See `RELEASES.md` for exact filenames and tags.
+# 1) Fetch repo (+ release ZIPs if published with gh)
+./scripts/setup-studconnect.sh install
 
----
+# 2) Put complete source ZIP in ~/GROKSTUDCONNECT/artifacts/ if not downloaded:
+#    STUDCONNECT-COMPLETE-v0.9.1-SOURCE.zip
+./scripts/setup-studconnect.sh extract
 
-## Recommended packages (latest)
+# 3) Run API (8080) + web (3000)
+./scripts/setup-studconnect.sh run
+```
 
-| Tag | File | Purpose |
-|-----|------|---------|
-| `v0.9.1-source` | `STUDCONNECT-COMPLETE-v0.9.1-SOURCE.zip` | Full monorepo (API, mobile, web, policy, docs) |
-| `v0.9-mobile` | `STUDCONNECT-MOBILE-Android-iOS-v0.9.zip` | Flutter Android + iOS project package |
-| `v0.9-web` | `STUDCONNECT-WEB-v0.9.zip` | Web/PWA client + local serve proxy |
-| `v0.9.0-mobile-source` | `STUDCONNECT-COMPLETE-v0.9.0-MOBILE-SOURCE.zip` | Monorepo at first mobile layer merge |
+Open **http://127.0.0.1:3000**
 
----
+Full commands: [`docs/SETUP.md`](./docs/SETUP.md) · script: [`scripts/setup-studconnect.sh`](./scripts/setup-studconnect.sh)
 
-## Quick start
-
-1. Download the **v0.9.1** complete source ZIP from Releases (upload from your Grok artifacts if not yet attached).  
-2. Follow **`docs/FLUTTER_DEV_AND_PRODUCTION_GUIDE.md`**.  
-3. API: `apps/reference-server` (dev) → NestJS `apps/api` (production).  
-4. Mobile: `apps/mobile` → `flutter create` / `flutter build apk|appbundle|ipa`.
+Flutter mobile: `./scripts/setup-studconnect.sh mobile-hint`
 
 ---
 
-## Product notes
+## Packages & tags
 
-- Server-side **policy-rules** enforce age, tier isolation, adult-to-minor contact bans.  
-- Guardians control screen time, AI, video limits, consent.  
-- Stud+ about GHS 15/month; LIVE gifts adult-only.  
-- Play Store / App Store publishing steps are in the Flutter guide.
+See [`RELEASES.md`](./RELEASES.md) for every ZIP filename and creation tag (`v0.9.1-source`, `v0.9-mobile`, `v0.9-web`, …).
+
+Upload binaries as **GitHub Release assets** (see `scripts/upload-release-zips.sh`).
 
 ---
 
-*Packages generated with Grok · STONECODE TECHNOLOGY · STUDCONNECT*
+## Docs
+
+| Doc | Topic |
+|-----|--------|
+| `docs/SETUP.md` | Local download & run |
+| `docs/HOW_TO_BUILD_APK.md` | Android APK |
+| `docs/FLUTTER_DEV_AND_PRODUCTION_GUIDE.md` | Flutter → production |
+
+---
+
+*STONECODE TECHNOLOGY · STUDCONNECT · Grok*
